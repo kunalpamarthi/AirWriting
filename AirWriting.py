@@ -3,7 +3,6 @@ import mediapipe as mp
 import time
 import numpy as np
 import os
-import pytesseract
 import easyocr
 
 path = r'C:\Users\ADMIN\Documents\BTP-2022\BTP'
@@ -140,54 +139,3 @@ result = reader.readtext(image_path)
 with open('text_result2.txt', mode ='w') as file:
     file.write(result[0][1])
     print('ready!')
-
-
-
-
-
-
-# pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
-
-# assigning an image from the source path
-# img = Image.open(r'C:\Users\ADMIN\Documents\BTP-2022\BTP\forOCR.jpg')
-
-# adding some sharpness and contrast to the image 
-# enhancer1 = ImageEnhance.Sharpness(img)
-# enhancer2 = ImageEnhance.Contrast(img)
-
-# img_edit = enhancer1.enhance(20.0)
-# img_edit = enhancer2.enhance(1.5)
-
-# converts the image to result and saves it into result variable
-# result = pytesseract.image_to_string(img_edit)
-
-'''
-# # For static images:
-# with mp_hands.Hands(
-#     static_image_mode=True,
-#     max_num_hands=2,
-#     min_detection_confidence=0.5) as hands:
-#
-#     # Read an image, flip it around y-axis for correct handedness output (see
-#     # above).
-#     image = cv2.imread('hand.jpg')  #Insert your Image Here
-#     # Convert the BGR image to RGB before processing.
-#     results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-#     if not results.multi_hand_landmarks:
-#         print("Continue")
-#
-#     # Print handedness and draw hand landmarks on the image.
-#     print('Handedness:', results.multi_handedness)
-#     image_height, image_width, _ = image.shape
-#     annotated_image = image.copy()
-#     for hand_landmarks in results.multi_hand_landmarks:
-#       print('hand_landmarks:', hand_landmarks)
-#       print(
-#           f'Index finger tip coordinates: (',
-#           f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
-#           f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height})'
-#       )
-#       mp_drawing.draw_landmarks(
-#           annotated_image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-#     cv2.imwrite(r'hands.png', annotated_image)
-'''
